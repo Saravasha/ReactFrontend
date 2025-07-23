@@ -37,6 +37,7 @@ function App() {
           <SocialMedia />
           <ArtGallery
             isModalVisible={isModalVisible}
+            
             setIsModalVisible={setIsModalVisible}
           />
           <Footer />
