@@ -1,0 +1,191 @@
+h2,
+h3,
+h4,
+h5 {
+  overflow-wrap: anywhere;
+  display: flex;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.PageTitle,
+h2,
+.ContentContainer {
+  font-size: clamp(3.5rem, 12vw + 1rem, 8rem);
+}
+.ContentTitle,
+h3 {
+  font-size: clamp(3rem, 10vw + 1rem, 6rem);
+}
+h4 {
+  font-size: clamp(2.5rem, 8vw + 1rem, 4rem);
+}
+h5 {
+  font-size: clamp(1.5rem, 6vw + 1rem, 3rem);
+}
+.PageContainer > p,
+.PageContainer > span,
+.PageContainer > a,
+.ContentContainer > p,
+.ContentContainer > span,
+.ContentContainer > a,
+.ContentContainer span b {
+  font-size: clamp(1rem, 3vw + 1rem, 3rem);
+}
+
+/* .PageContainer > td {
+  font-size: clamp(1rem, 1vw + 4.5rem, 5rem);
+  overflow-wrap: anywhere;
+} */
+
+.PageContainer > p > img,
+.ContentContainer > p > img,
+.PageContainer > p > video,
+.ContentContainer > p > video {
+  width: 70% !important;
+  /* height: 100% !important; */
+  /* margin: 1rem; */
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  /* padding: 1rem; */
+  /* background-color: aqua; */
+  margin: 0rem;
+  gap: 1rem;
+
+  /* border: solid 4px black; */
+  background-color: rgba(255, 255, 255, 0);
+  /* box-shadow: var(--shadow-lg); */
+  /* border-radius: var(--radius-2xl); 1rem (16px) */
+}
+
+.PageContainer > p,
+.PageContainer > *,
+.ContentContainer > p,
+.ContentContainer > * {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  gap: 1rem;
+  background-color: rgba(255, 255, 255, 0);
+  /* border: solid 4px gold; */
+  /* background-color: aquamarine; */
+  margin: 0rem;
+  text-align: center;
+  /* box-shadow: var(--shadow-lg); */
+  /* border-radius: var(--radius-2xl); */
+  /* filter: drop-shadow(0 1.2px 1.2px rgba(0, 3, 3, 0.8)); */
+}
+
+.ContentContainer {
+  margin: 0rem;
+  padding-top: 1rem;
+  gap: 1rem;
+}
+
+.Page {
+  box-shadow: black 1rem;
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-2xl); /* 1rem (16px) */
+}
+
+/* .Pages {
+  background-color: rgba(25, 255, 0, 1);
+} */
+
+.PageTitle,
+.ContentTitle {
+  /* border: solid 4px black; */
+  display: flex;
+  height: auto;
+  padding: calc(1rem * 2);
+  align-items: center;
+  justify-content: center;
+  /* background-color: aqua; */
+  box-shadow: var(--shadow-lg);
+  /* border-radius: var(--radius-2xl); 1rem (16px) */
+}
+
+.PageContainer {
+  /* border: double 4px black; */
+  /* background-color: black; */
+  box-shadow: var(--shadow-lg);
+  /* border-radius: var(--radius-2xl); 1rem (16px) */
+}
+
+/* .PageContainer > * > img:hover {
+  box-shadow: var(--shadow-2xl);
+} */
+
+.ContentContainer {
+  /* border: dotted 4px red; */
+  margin-top: 1rem;
+  /* background-color: black; */
+  box-shadow: var(--shadow-lg);
+  /* border-radius: var(--radius-2xl); 1rem (16px) */
+}
+
+/* wrapper class */
+/* .Wrapper {
+  height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
+} */
+
+/* position: relative; */
+/* height: 100%; */
+/* width: 100%; */
+/* object-fit: cover; */
+/* z-index: -1; */
+/* transform: translateZ(-10px) scale(1.5); */
+
+/* div {
+  width: 100% !important;
+} */
+
+/* [&>*]:w-full [&>*]:justify-center [&>*]:items-center [&>*]:align-self-center [&>*]:flex */
+
+/* [&>*]:w-full */
+
+/* [&>*]:w-full [&>*]:justify-center [&>*]:items-center [&>*]:align-self-center [&>*]:flex [&>*]:flex-col */
+/* 
+[&>*]:w-full [&>*]:justify-center [&>*]:items-center [&>*]:align-self-center [&>*]:flex [&>*]:flex-col [&>*]:gap-4 [&>*]:m-4 [&>*]:my-4 [&>*]:mx-4 [&>*]:px-8 [&>*]:py-8 */
+/* 
+[&>*]:w-full [&>*]:justify-center [&>*]:items-center [&>*]:align-self-center [&>*]:flex [&>*]:flex-col [&>*]:gap-4 [&>*]:m-4 [&>*]:my-4 [&>*]:mx-4 [&>*]:px-8 [&>*]:py-8   */
+
+/* [style="width"] {
+  width: 100% !important;
+} */
+
+.ContentContainer table {
+  /* display: grid; */
+  overflow-x: auto;
+  width: auto;
+}
+.ContentContainer tbody {
+  display: table;
+  width: auto;
+  margin-bottom: 1rem;
+}
+.ContentContainer tr {
+  display: table-row;
+  width: auto;
+}
+
+.ContentContainer td {
+  border: 1px solid white;
+  padding: 1px;
+  text-align: center;
+  display: table-cell;
+  font-size: clamp(0.5rem, 2vw + 0.75rem, 4rem);
+}
+
+/* .ContentContainer tr:nth-child(even) {
+  background-color: #b90000;
+} */
