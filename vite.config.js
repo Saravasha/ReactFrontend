@@ -9,36 +9,36 @@ export default defineConfig({
   "process.env": {
     DOTNET_ASSET_API_URL:
       process.env.VITE_DOTNET_ASSET_API_URL ||
-      "https://admin.goshehart.se/api/react/asset",
+      "https://admin.saravasha.com/api/react/asset",
     DOTNET_ASSET_API_URL_STAGE:
       process.env.VITE_DOTNET_ASSET_API_URL ||
-      "https://admin-staging.goshehart.se/api/react/asset",
+      "https://admin-staging.saravasha.com/api/react/asset",
     DOTNET_ASSET_API_URL_DEV:
       process.env.VITE_DOTNET_ASSET_API_URL ||
       "http://localhost:5000/api/react/asset",
     DOTNET_PAGE_API_URL:
       process.env.VITE_DOTNET_PAGE_API_URL ||
-      "https://admin.goshehart.se/api/react/page",
+      "https://admin.saravasha.com/api/react/page",
     DOTNET_PAGE_API_URL_STAGE:
       process.env.VITE_DOTNET_PAGE_API_URL ||
-      "https://admin-staging.goshehart.se/api/react/page",
+      "https://admin-staging.saravasha.com/api/react/page",
     DOTNET_PAGE_API_URL_DEV:
       process.env.VITE_DOTNET_PAGE_API_URL ||
       "http://localhost:5000/api/react/page",
     DOTNET_COLOR_API_URL:
       process.env.VITE_DOTNET_COLOR_API_URL ||
-      "https://admin.goshehart.se/api/react/color",
+      "https://admin.saravasha.com/api/react/color",
     DOTNET_COLOR_API_URL_STAGE:
       process.env.VITE_DOTNET_COLOR_API_URL ||
-      "https://admin-staging.goshehart.se/api/react/color",
+      "https://admin-staging.saravasha.com/api/react/color",
     DOTNET_COLOR_API_URL_DEV:
       process.env.VITE_DOTNET_COLOR_API_URL ||
       "http://localhost:5000/api/react/color",
     DOTNET_API_URL:
-      process.env.VITE_DOTNET_API_TARGET || "https://admin.goshehart.se/",
+      process.env.VITE_DOTNET_API_TARGET || "https://admin.saravasha.com/",
     DOTNET_API_URL_STAGE:
       process.env.VITE_DOTNET_API_TARGET ||
-      "https://admin-staging.goshehart.se/",
+      "https://admin-staging.saravasha.com/",
     DOTNET_API_URL_DEV:
       process.env.VITE_DOTNET_API_TARGET || "http://localhost:5000/",
   },
