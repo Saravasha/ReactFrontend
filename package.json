@@ -1,9 +1,10 @@
 {
-  "name": "goshehartvitereactapp",
+  "name": "reactfrontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "vite --entry src/App.jsx",
     "dev": "vite --open",
     "build": "vite build",
     "lint": "eslint .",

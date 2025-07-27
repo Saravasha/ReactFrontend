@@ -1,5 +1,5 @@
-# Triggers
-name: Deploy goshehartvitereactapp to Staging
+name: Deploy reactfrontend to Staging
+
 on:
   push:
     branches:
@@ -7,32 +7,41 @@ on:
 
 jobs:
   build:
-    name: Deploy project with Nginx
+    name: Build and Deploy Frontend
     runs-on: [self-hosted, Staging]
-    # runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 18
+
       - name: Set Environment Variables
+        run: echo "VITE_API_URL=${{ secrets.VITE_ENVIRONMENT_STAGING }}" >> $GITHUB_ENV
+
+      - name: Install dependencies and build
         run: |
-          echo "VITE_API_URL=${{ secrets.VITE_ENVIRONMENT_STAGING }}" >> $GITHUB_ENV
-      - name: NPM Build
-        run: |
-          npm i
+          npm install
           npm run build -- --mode staging
-          ls -a 
-          cp -a dist/. /var/www/goshehartreact-staging
-          cd ..
-      - name: PM2 Syncing
+          ls -la dist
+
+      - name: Sync build to VPS folder
+        run: |
+          # Adjust this path if your nginx root differs
+          sudo rm -rf /opt/apps/frontend-staging/*
+          sudo cp -a dist/. /opt/apps/frontend-staging/
+
+      - name: Restart PM2 frontend process
         run: |
           export PM2_HOME=/root/.pm2
-          pm2 resurrect
-          pm2 stop goshehartreactviteapp-staging
-          pm2 start goshehartreactviteapp-staging
+          if pm2 list | grep -q 'frontend-staging'; then
+            pm2 restart frontend-staging
+          else
+            pm2 start npm --name frontend-staging -- run start
+          fi
           pm2 save
-      - name: Starting NGNIX
-        run: |
-          service nginx restart
+
+      - name: Restart nginx
+        run: sudo service nginx restart
