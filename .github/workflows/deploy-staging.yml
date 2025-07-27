@@ -1,5 +1,5 @@
-# Triggers
 name: Deploy reactfrontend to Production
+
 on:
   push:
     branches:
@@ -7,29 +7,37 @@ on:
 
 jobs:
   build:
-    name: Deploy project with Nginx
+    name: Build and Deploy Frontend Production
     runs-on: [self-hosted, Production]
-    # runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: NPM Build
+          node-version: 18
+
+      - name: Install dependencies and build
         run: |
-          npm i
+          npm install
           npm run build -- --mode production
-          ls -a 
-          cp -a dist/. /var/www/html
-          cd ..
-      - name: PM2 Syncing
+          ls -la dist
+
+      - name: Sync build to VPS production folder
+        run: |
+          sudo rm -rf /opt/apps/frontend-production/*
+          sudo cp -a dist/. /opt/apps/frontend-production/
+
+      - name: Restart PM2 frontend production process
         run: |
           export PM2_HOME=/root/.pm2
-          pm2 resurrect
-          pm2 stop reactfrontend-production
-          pm2 start reactfrontend-production
+          if pm2 list | grep -q 'frontend-production'; then
+            pm2 restart frontend-production
+          else
+            pm2 start npm --name frontend-production -- run start
+          fi
           pm2 save
-      - name: Starting NGNIX
-        run: |
-          service nginx restart
+
+      - name: Restart nginx
+        run: sudo service nginx restart
