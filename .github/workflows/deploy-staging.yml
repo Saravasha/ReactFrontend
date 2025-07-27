@@ -1,5 +1,5 @@
 # Triggers
-name: Deploy goshehartvitereactapp to Production
+name: Deploy reactfrontend to Production
 on:
   push:
     branches:
@@ -19,16 +19,16 @@ jobs:
       - name: NPM Build
         run: |
           npm i
-          npm run build
+          npm run build -- --mode production
           ls -a 
-          cp -a dist/. /var/www/html
+          cp -a dist/. /opt/actions-runners/frontend-staging/_work/ReactFrontend/ReactFrontend
           cd ..
       - name: PM2 Syncing
         run: |
           export PM2_HOME=/root/.pm2
           pm2 resurrect
-          pm2 stop goshehartreactviteapp
-          pm2 start goshehartreactviteapp
+          pm2 stop reactfrontend-production
+          pm2 start reactfrontend-production
           pm2 save
       - name: Starting NGNIX
         run: |

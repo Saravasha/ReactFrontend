@@ -1,5 +1,5 @@
 # Triggers
-name: Deploy goshehartvitereactapp to Staging
+name: Deploy reactfrontend to Staging
 on:
   push:
     branches:
@@ -24,14 +24,14 @@ jobs:
           npm i
           npm run build -- --mode staging
           ls -a 
-          cp -a dist/. /var/www/goshehartreact-staging
+          cp -a dist/. /opt/actions-runners/frontend-staging/_work/ReactFrontend/ReactFrontend
           cd ..
       - name: PM2 Syncing
         run: |
           export PM2_HOME=/root/.pm2
           pm2 resurrect
-          pm2 stop goshehartreactviteapp-staging
-          pm2 start goshehartreactviteapp-staging
+          pm2 stop reactfrontend-staging
+          pm2 start reactfrontend-staging
           pm2 save
       - name: Starting NGNIX
         run: |
