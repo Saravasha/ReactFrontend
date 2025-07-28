@@ -9,6 +9,7 @@ jobs:
   build:
     name: Build and Deploy Frontend
     runs-on: [self-hosted, Staging]
+    environment: Staging
 
     steps:
       - uses: actions/checkout@v2
