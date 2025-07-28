@@ -9,6 +9,7 @@ jobs:
   build:
     name: Build and Deploy Frontend Production
     runs-on: [self-hosted, Production]
+    environment: Production
 
     steps:
       - uses: actions/checkout@v2
