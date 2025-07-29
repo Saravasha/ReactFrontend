@@ -1,4 +1,4 @@
-name: Deploy reactfrontend to Staging
+name: Deploy ReactFrontend to Staging
 
 on:
   push:
