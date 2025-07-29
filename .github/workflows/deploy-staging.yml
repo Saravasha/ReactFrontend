@@ -1,4 +1,4 @@
-name: Deploy reactfrontend to Production
+name: Deploy ReactFrontend to Production
 
 on:
   push:
