@@ -31,15 +31,5 @@ jobs:
           sudo rm -rf /opt/apps/frontend-production/*
           sudo cp -a dist/. /opt/apps/frontend-production/
 
-      - name: Restart PM2 frontend production process
-        run: |
-          export PM2_HOME=/root/.pm2
-          if pm2 list | grep -q 'frontend-production'; then
-            pm2 restart frontend-production
-          else
-            pm2 start npm --name frontend-production -- run start
-          fi
-          pm2 save
-
       - name: Restart nginx
         run: sudo service nginx restart
