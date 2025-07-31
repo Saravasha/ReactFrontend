@@ -35,15 +35,5 @@ jobs:
           sudo rm -rf /opt/apps/frontend-staging/*
           sudo cp -a dist/. /opt/apps/frontend-staging/
 
-      - name: Restart PM2 frontend process
-        run: |
-          export PM2_HOME=/root/.pm2
-          if pm2 list | grep -q 'frontend-staging'; then
-            pm2 restart frontend-staging
-          else
-            pm2 start npm --name frontend-staging -- run start
-          fi
-          pm2 save
-
       - name: Restart nginx
         run: sudo service nginx restart
