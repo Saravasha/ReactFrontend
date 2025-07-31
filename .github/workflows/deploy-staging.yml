@@ -1,9 +1,10 @@
-name: Deploy ReactFrontend to Production
+name: Deploy to Production
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build:
