@@ -66,7 +66,7 @@ const ArtGallery = ({ isModalVisible, setIsModalVisible }) => {
       ) : (
         <>
           <h1 className="!text-5xl sm:!text-[5vw] font-thin m-4 mx-auto flex justify-center border-transparent border-b p-4 dark:text-white text-white">
-            Art Gallery
+            Asset Gallery
           </h1>
           <AssetSearch
             searchAsset={searchAsset}
